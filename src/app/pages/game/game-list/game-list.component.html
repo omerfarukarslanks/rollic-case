@@ -1,1 +1,49 @@
-<p>game-list works!</p>
+<div class="container h-100">
+  <div class="row">
+
+    <div class="col-12">
+      <p class="">{{title}}</p>
+    </div>
+
+    <div class="col-4">
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input class="form-control form-control-lg" [(ngModel)]="searchString" placeholder="Search Game">
+      </div>
+
+    </div>
+
+    <div class="col-8 add-button">
+      <a href="/game/create" class="btn custom-button" style="width: 20%; background-color: #f8fafc; color: #1e293b; box-shadow: 0 0 #0003, 0 0 #00000024, 0 0 #0000001f">Create Game</a>
+    </div>
+
+    <div class="col-12">
+      <div class="row" *ngIf="gameList && gameList.length > 0">
+        <div *ngFor="let game of gameList | filter : 'name' : searchString;" class="col-md-6 col-xl-4 col-lg-6 col-sm-12 mt-3">
+          <div class="card" style="width: 25rem;">
+            <div class="p-3">
+              <img [src]="game?.icon" width="50px" height="300px" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body p-0">
+              <div class="mb-4 border-top border-top-black h-1 w-12 px-5"></div>
+              <h5 class="card-title font-normal mb-4 px-5"><span class="font-600">Name: </span>{{game?.name}}</h5>
+              <p class="card-text font-normal px-5"><span class="font-600">Bundle: </span> {{game?.bundle}}</p>
+              <p class="card-text font-normal px-5"><span class="font-600">Owner: </span> {{game?.owner}}</p>
+              <div class="flex flex-column w-100 mt-auto text-right" style="background: #f8fafc">
+                <div class="progress bg-transparent">
+                  <div class="progress-bar" role="progressbar" style="width: 100%; height: 1px; background-color: #64748b; opacity: 0.2" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="px-4 pb-3">
+                  <a href="#" class="btn btn-danger w-50 custom-button" (click)="deleteGame(game.id)">Sil</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid text-center not-element" *ngIf="gameList && gameList.length === 0">
+        <p>Content not found...</p>
+      </div>
+    </div>
+  </div>
+</div>

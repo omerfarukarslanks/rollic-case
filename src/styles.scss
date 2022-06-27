@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+body {
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+  color: #5a5a5a;
+  --fuse-bg-default-rgb: 241,245,249;
+  --tw-bg-opacity: 1;
+  background: rgba(var(--fuse-bg-default-rgb),var(--tw-bg-opacity)) !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.invalid-feedback {
+  display: block !important;
+}

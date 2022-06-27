@@ -3,4 +3,5 @@ export class BaseGameModel  {
   bundle?: string;
   owner?: string;
   icon?: string;
+  id?: string;
 }

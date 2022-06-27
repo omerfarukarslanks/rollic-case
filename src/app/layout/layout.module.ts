@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout.component';
+import {RouterModule} from "@angular/router";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -8,8 +10,13 @@ import { LayoutComponent } from './layout.component';
   declarations: [
     LayoutComponent
   ],
+  exports: [
+    LayoutComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
   ]
 })
 export class LayoutModule { }

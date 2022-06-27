@@ -1,0 +1,47 @@
+p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card {
+  border-radius: 1rem;
+  background: white;
+  color: #64748b;
+}
+
+.add-button {
+  text-align: right;
+}
+
+.not-element {
+  margin-top: 15%;
+}
+
+.border-top-black {
+  border-top: 1px solid black;
+}
+
+.h-1 {
+  height: .25rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.font-normal {
+  font-weight: normal;
+}
+
+.font-600 {
+  font-weight: 600;
+}
+
+.custom-button {
+  border-radius: 9999px;
+  min-height: 50px;
+  max-height: 50px;
+  padding: .675rem .75rem;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity))!important
+}
