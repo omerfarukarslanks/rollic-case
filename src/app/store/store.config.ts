@@ -1,10 +1,9 @@
 import {NgxsDevtoolsOptions} from "@ngxs/devtools-plugin";
 import {environment} from "../../environments/environment";
 import {NgxsConfig} from "@ngxs/store/src/symbols";
-import {HeaderState} from "./header/header.state";
 import {GameState} from "./game/game.state";
 
-export const STATES_MODULES = [HeaderState, GameState];
+export const STATES_MODULES = [GameState];
 
 export const STORAGE_MODULES = {key: 'game'};
 

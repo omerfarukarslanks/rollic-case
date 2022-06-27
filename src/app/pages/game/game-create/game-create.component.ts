@@ -1,12 +1,10 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {Actions, ofActionSuccessful, Store} from "@ngxs/store";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Store} from "@ngxs/store";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {CreateGameForm} from "../../../model/game/interface/create-game-form";
-import {ToastrService} from "ngx-toastr";
 import {CreateGameAction} from "../../../store/game/game.action";
 import {RandomIdUtil} from "../../../util/random-id.util";
-import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-game-create',
@@ -14,18 +12,14 @@ import {Subject, takeUntil} from "rxjs";
   styleUrls: ['./game-create.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GameCreateComponent implements OnInit, OnDestroy {
+export class GameCreateComponent implements OnInit {
 
   title?: string;
   submitted = false;
-  private ngUnsubscribe = new Subject();
 
   constructor(private activatedRoute: ActivatedRoute,
               private store: Store,
-              private formBuilder: FormBuilder,
-              private toastService: ToastrService,
-              private router: Router,
-              private actions$: Actions) {
+              private formBuilder: FormBuilder) {
   }
 
   createGameForm = this.formBuilder.group<CreateGameForm>({
@@ -48,29 +42,14 @@ export class GameCreateComponent implements OnInit, OnDestroy {
     return this.createGameForm.get('owner')! as FormControl;
   }
 
-  get icon(): FormControl {
-    return this.createGameForm.get('icon')! as FormControl;
-  }
-
   ngOnInit(): void {
     this.title = this.activatedRoute.snapshot.data['header'];
-  }
-
-  ngOnDestroy(): void {
-    this.ngUnsubscribe.next('');
-    this.ngUnsubscribe.complete();
   }
 
   createGame() {
     this.submitted = true;
     if(this.createGameForm.valid) {
       this.store.dispatch(new CreateGameAction(this.createGameForm.value));
-/*      this.actions$.pipe(ofActionSuccessful(CreateGameAction), takeUntil(this.ngUnsubscribe)).subscribe(() => {
-        this.toastService.success('Game Created Successfully!', 'Success');
-        this.router.navigate(['/game/list']);
-      });*/
-      this.toastService.success('Game Created Successfully!', 'Success');
-      this.router.navigate(['/game/list']);
     }
   }
 

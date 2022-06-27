@@ -15,3 +15,15 @@ export class DeleteGameAction {
   constructor(public id: string | undefined) {
   }
 }
+
+export class CreateGameActionSuccess {
+  static readonly type = '[Game] CreateGameActionSuccess'
+}
+
+export class CreateGameActionError {
+  static readonly type = '[Game] CreateGameActionError'
+}
+
+export class DeleteGameActionSuccess {
+  static readonly type = '[Game] DeleteGameActionSuccess'
+}

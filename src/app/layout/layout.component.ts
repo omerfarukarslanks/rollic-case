@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
-import {Select} from "@ngxs/store";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-layout',

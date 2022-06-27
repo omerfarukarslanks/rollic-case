@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { GameListComponent } from './game-list.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {GameListComponent} from './game-list.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FilterPipe} from "../../../pipe/filter/filter.pipe";
 import {FormsModule} from "@angular/forms";
@@ -24,4 +24,5 @@ const routes: Routes = [
     FormsModule,
   ]
 })
-export class GameListModule { }
+export class GameListModule {
+}
